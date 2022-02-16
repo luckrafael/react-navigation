@@ -1,5 +1,7 @@
 package com.navigation;
 
+import com.facebook.react.bridge.JSIModulePackage;
+import com.swmansion.reanimated.ReanimatedJSIModulePackage;
 import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
@@ -14,6 +16,7 @@ import java.util.List;
 public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost =
+    
       new ReactNativeHost(this) {
         @Override
         public boolean getUseDeveloperSupport() {
@@ -32,6 +35,11 @@ public class MainApplication extends Application implements ReactApplication {
         @Override
         protected String getJSMainModuleName() {
           return "index";
+        }
+        
+        @Override 
+        protected JSIModulePackage getJSIModulePackage() { 
+          return new ReanimatedJSIModulePackage(); 
         }
       };
 
